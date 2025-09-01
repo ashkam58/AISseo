@@ -7,14 +7,62 @@ import Link from 'next/link';
 import Head from 'next/head';
 
 const components = {
-  h1: (props) => <h1 style={{ color: '#1f2937', marginBottom: '1.5rem', fontSize: '2.5rem', fontWeight: '700', lineHeight: '1.2' }} {...props} />,
-  h2: (props) => <h2 style={{ color: '#374151', marginBottom: '1rem', marginTop: '2.5rem', fontSize: '2rem', fontWeight: '600' }} {...props} />,
-  h3: (props) => <h3 style={{ color: '#4b5563', marginBottom: '0.75rem', marginTop: '2rem', fontSize: '1.5rem', fontWeight: '600' }} {...props} />,
-  p: (props) => <p style={{ lineHeight: '1.8', marginBottom: '1.25rem', color: '#6b7280', fontSize: '1.1rem' }} {...props} />,
-  ul: (props) => <ul style={{ paddingLeft: '1.5rem', marginBottom: '1.25rem', color: '#6b7280' }} {...props} />,
-  li: (props) => <li style={{ marginBottom: '0.5rem', color: '#6b7280', lineHeight: '1.6' }} {...props} />,
-  strong: (props) => <strong style={{ color: '#1f2937', fontWeight: '600' }} {...props} />,
-  a: (props) => <a style={{ color: '#3b82f6', textDecoration: 'underline', fontWeight: '500' }} {...props} />,
+  h1: (props) => <h1 style={{ 
+    color: '#0f172a', 
+    marginBottom: '2rem', 
+    fontSize: '2.8rem', 
+    fontWeight: '800', 
+    lineHeight: '1.1',
+    fontFamily: 'system-ui, -apple-system, sans-serif'
+  }} {...props} />,
+  h2: (props) => <h2 style={{ 
+    color: '#1e293b', 
+    marginBottom: '1.5rem', 
+    marginTop: '3rem', 
+    fontSize: '2.2rem', 
+    fontWeight: '700',
+    fontFamily: 'system-ui, -apple-system, sans-serif'
+  }} {...props} />,
+  h3: (props) => <h3 style={{ 
+    color: '#334155', 
+    marginBottom: '1rem', 
+    marginTop: '2.5rem', 
+    fontSize: '1.8rem', 
+    fontWeight: '600',
+    fontFamily: 'system-ui, -apple-system, sans-serif'
+  }} {...props} />,
+  p: (props) => <p style={{ 
+    lineHeight: '1.8', 
+    marginBottom: '1.5rem', 
+    color: '#475569', 
+    fontSize: '1.125rem',
+    fontFamily: 'system-ui, -apple-system, sans-serif',
+    fontWeight: '400'
+  }} {...props} />,
+  ul: (props) => <ul style={{ 
+    paddingLeft: '2rem', 
+    marginBottom: '1.5rem', 
+    color: '#475569',
+    fontFamily: 'system-ui, -apple-system, sans-serif'
+  }} {...props} />,
+  li: (props) => <li style={{ 
+    marginBottom: '0.75rem', 
+    color: '#475569', 
+    lineHeight: '1.7',
+    fontSize: '1.125rem',
+    fontFamily: 'system-ui, -apple-system, sans-serif'
+  }} {...props} />,
+  strong: (props) => <strong style={{ 
+    color: '#0f172a', 
+    fontWeight: '700',
+    fontFamily: 'system-ui, -apple-system, sans-serif'
+  }} {...props} />,
+  a: (props) => <a style={{ 
+    color: '#2563eb', 
+    textDecoration: 'underline', 
+    fontWeight: '600',
+    fontFamily: 'system-ui, -apple-system, sans-serif'
+  }} {...props} />,
 };
 
 export default function CoursePage({ course, mdxSource }) {
@@ -231,16 +279,25 @@ export default function CoursePage({ course, mdxSource }) {
         </section>
         
         {/* Course Content */}
-        <section style={{ padding: '4rem 2rem' }}>
+        <section style={{ padding: '4rem 2rem', background: '#ffffff' }}>
           <div style={{ maxWidth: '900px', margin: '0 auto' }}>
             <div style={{ 
-              background: 'white',
-              padding: '3rem',
+              background: '#ffffff',
+              padding: '4rem',
               borderRadius: '20px',
-              boxShadow: '0 10px 30px rgba(0,0,0,0.1)',
-              border: '1px solid #e5e7eb'
+              boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06)',
+              border: '1px solid #e2e8f0',
+              position: 'relative',
+              zIndex: 10
             }}>
-              <MDXRemote {...mdxSource} components={components} />
+              <div className="course-content" style={{
+                fontSize: '1.125rem',
+                lineHeight: '1.8',
+                color: '#475569',
+                fontFamily: 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif'
+              }}>
+                <MDXRemote {...mdxSource} components={components} />
+              </div>
             </div>
           </div>
         </section>
@@ -377,6 +434,67 @@ export default function CoursePage({ course, mdxSource }) {
 
       {/* Mobile Responsive Styles */}
       <style jsx>{`
+        /* Force override any conflicting styles */
+        .course-content * {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif !important;
+        }
+        
+        .course-content h1 {
+          color: #0f172a !important;
+          font-size: 2.8rem !important;
+          font-weight: 800 !important;
+          line-height: 1.1 !important;
+          margin-bottom: 2rem !important;
+        }
+        
+        .course-content h2 {
+          color: #1e293b !important;
+          font-size: 2.2rem !important;
+          font-weight: 700 !important;
+          margin-bottom: 1.5rem !important;
+          margin-top: 3rem !important;
+        }
+        
+        .course-content h3 {
+          color: #334155 !important;
+          font-size: 1.8rem !important;
+          font-weight: 600 !important;
+          margin-bottom: 1rem !important;
+          margin-top: 2.5rem !important;
+        }
+        
+        .course-content p {
+          color: #475569 !important;
+          font-size: 1.125rem !important;
+          line-height: 1.8 !important;
+          margin-bottom: 1.5rem !important;
+          font-weight: 400 !important;
+        }
+        
+        .course-content ul {
+          color: #475569 !important;
+          padding-left: 2rem !important;
+          margin-bottom: 1.5rem !important;
+        }
+        
+        .course-content li {
+          color: #475569 !important;
+          font-size: 1.125rem !important;
+          line-height: 1.7 !important;
+          margin-bottom: 0.75rem !important;
+        }
+        
+        .course-content strong {
+          color: #0f172a !important;
+          font-weight: 700 !important;
+        }
+        
+        .course-content a {
+          color: #2563eb !important;
+          text-decoration: underline !important;
+          font-weight: 600 !important;
+        }
+        
         @media (max-width: 768px) {
           h1 {
             fontSize: 2.5rem !important;
@@ -412,6 +530,23 @@ export default function CoursePage({ course, mdxSource }) {
           .related-courses {
             grid-template-columns: 1fr !important;
           }
+          
+          .course-content h1 {
+            font-size: 2rem !important;
+          }
+          
+          .course-content h2 {
+            font-size: 1.8rem !important;
+          }
+          
+          .course-content h3 {
+            font-size: 1.5rem !important;
+          }
+          
+          .course-content p,
+          .course-content li {
+            font-size: 1rem !important;
+          }
         }
         
         @media (max-width: 480px) {
@@ -425,6 +560,18 @@ export default function CoursePage({ course, mdxSource }) {
           
           .course-meta-grid {
             grid-template-columns: 1fr !important;
+          }
+          
+          .course-content h1 {
+            font-size: 1.8rem !important;
+          }
+          
+          .course-content h2 {
+            font-size: 1.6rem !important;
+          }
+          
+          .course-content h3 {
+            font-size: 1.4rem !important;
           }
         }
       `}</style>
