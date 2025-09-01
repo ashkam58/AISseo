@@ -52,7 +52,7 @@ export default function Courses({ courses = [] }) {
       />
       
       {/* Hero Section */}
-      <div style={{
+      <div className="hero-section" style={{
         background: 'linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%)',
         padding: '4rem 2rem',
         textAlign: 'center',
@@ -85,7 +85,7 @@ export default function Courses({ courses = [] }) {
           animation: 'float 5s ease-in-out infinite delay-2s'
         }}>🎯</div>
         
-        <h1 style={{ 
+        <h1 className="hero-title" style={{ 
           fontSize: '4rem', 
           fontWeight: '800', 
           marginBottom: '1rem',
@@ -97,7 +97,7 @@ export default function Courses({ courses = [] }) {
         }}>
           🌟 Amazing Courses for Kids! 🌟
         </h1>
-        <p style={{ 
+        <p className="hero-subtitle" style={{ 
           fontSize: '1.5rem', 
           marginBottom: '2rem',
           opacity: 0.9,
@@ -106,7 +106,7 @@ export default function Courses({ courses = [] }) {
         }}>
           Discover fun, interactive learning adventures that make education exciting!
         </p>
-        <div style={{
+        <div className="hero-stats" style={{
           display: 'flex',
           justifyContent: 'center',
           gap: '1rem',
@@ -143,13 +143,13 @@ export default function Courses({ courses = [] }) {
       </div>
 
       {/* Courses Grid */}
-      <div style={{ 
+      <div className="courses-container" style={{ 
         padding: '4rem 2rem', 
         maxWidth: '1400px', 
         margin: '0 auto',
         background: 'linear-gradient(135deg, #f8faff 0%, #e8f2ff 100%)'
       }}>        
-        <div style={{ 
+        <div className="courses-grid" style={{ 
           display: 'grid', 
           gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', 
           gap: '2rem' 
@@ -160,6 +160,7 @@ export default function Courses({ courses = [] }) {
               return (
                 <div
                   key={course.slug}
+                  className="course-card"
                   style={{
                     background: style.gradient,
                     backgroundImage: style.bgPattern,
@@ -184,11 +185,11 @@ export default function Courses({ courses = [] }) {
                   }}
                 >
                   {/* Course Header */}
-                  <div style={{
+                  <div className="course-header" style={{
                     padding: '2rem 2rem 1rem 2rem',
                     borderBottom: '1px solid rgba(255,255,255,0.2)'
                   }}>
-                    <div style={{
+                    <div className="course-icon" style={{
                       fontSize: '4rem',
                       textAlign: 'center',
                       marginBottom: '1rem',
@@ -197,7 +198,7 @@ export default function Courses({ courses = [] }) {
                     }}>
                       {style.icon}
                     </div>
-                    <h3 style={{ 
+                    <h3 className="course-title" style={{ 
                       fontWeight: '700', 
                       marginBottom: '1rem', 
                       fontSize: '1.5rem',
@@ -310,9 +311,213 @@ export default function Courses({ courses = [] }) {
           40% { transform: translateY(-10px); }
           60% { transform: translateY(-5px); }
         }
-        @media (max-width: 768px) {
-          h1 { fontSize: 2.5rem !important; }
-          .course-card { margin: 1rem !important; }
+
+        /* Mobile First Responsive Design */
+        .hero-section {
+          padding: 2rem 1rem !important;
+        }
+        
+        .hero-title {
+          fontSize: 2.5rem !important;
+          line-height: 1.2 !important;
+        }
+        
+        .hero-subtitle {
+          fontSize: 1rem !important;
+          padding: 0 1rem !important;
+        }
+        
+        .hero-stats > div {
+          font-size: 0.8rem !important;
+          padding: 0.4rem 0.8rem !important;
+          white-space: nowrap;
+        }
+        
+        .courses-container {
+          padding: 2rem 1rem !important;
+        }
+        
+        .courses-grid {
+          grid-template-columns: 1fr !important;
+          gap: 1.5rem !important;
+        }
+        
+        .course-card {
+          margin: 0 !important;
+          min-height: auto !important;
+        }
+        
+        .course-header {
+          padding: 1.5rem 1.5rem 1rem 1.5rem !important;
+        }
+        
+        .course-icon {
+          fontSize: 3rem !important;
+        }
+        
+        .course-title {
+          fontSize: 1.2rem !important;
+        }
+
+        /* Tablet Styles */
+        @media (min-width: 480px) {
+          .hero-section {
+            padding: 3rem 1.5rem !important;
+          }
+          
+          .hero-title {
+            fontSize: 3rem !important;
+          }
+          
+          .hero-subtitle {
+            fontSize: 1.2rem !important;
+          }
+          
+          .courses-grid {
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)) !important;
+          }
+          
+          .course-icon {
+            fontSize: 3.5rem !important;
+          }
+          
+          .course-title {
+            fontSize: 1.3rem !important;
+          }
+        }
+
+        /* Small Desktop */
+        @media (min-width: 768px) {
+          .hero-section {
+            padding: 4rem 2rem !important;
+          }
+          
+          .hero-title {
+            fontSize: 3.5rem !important;
+          }
+          
+          .hero-subtitle {
+            fontSize: 1.3rem !important;
+          }
+          
+          .hero-stats > div {
+            font-size: 0.9rem !important;
+            padding: 0.5rem 1rem !important;
+          }
+          
+          .courses-container {
+            padding: 3rem 2rem !important;
+          }
+          
+          .courses-grid {
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)) !important;
+            gap: 1.8rem !important;
+          }
+          
+          .course-header {
+            padding: 1.8rem 1.8rem 1rem 1.8rem !important;
+          }
+          
+          .course-icon {
+            fontSize: 3.8rem !important;
+          }
+          
+          .course-title {
+            fontSize: 1.4rem !important;
+          }
+        }
+
+        /* Large Desktop */
+        @media (min-width: 1024px) {
+          .hero-title {
+            fontSize: 4rem !important;
+          }
+          
+          .hero-subtitle {
+            fontSize: 1.5rem !important;
+          }
+          
+          .hero-stats > div {
+            font-size: 1rem !important;
+            padding: 0.5rem 1rem !important;
+          }
+          
+          .courses-container {
+            padding: 4rem 2rem !important;
+          }
+          
+          .courses-grid {
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)) !important;
+            gap: 2rem !important;
+          }
+          
+          .course-header {
+            padding: 2rem 2rem 1rem 2rem !important;
+          }
+          
+          .course-icon {
+            fontSize: 4rem !important;
+          }
+          
+          .course-title {
+            fontSize: 1.5rem !important;
+          }
+        }
+
+        /* Extra Large Desktop */
+        @media (min-width: 1440px) {
+          .courses-grid {
+            grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)) !important;
+            gap: 2.5rem !important;
+          }
+        }
+
+        /* Touch Device Optimizations */
+        @media (hover: none) {
+          .course-card:hover {
+            transform: none !important;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2) !important;
+          }
+        }
+
+        /* High DPI Displays */
+        @media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi) {
+          .hero-title, .course-title {
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+          }
+        }
+
+        /* Landscape Mobile */
+        @media (max-height: 500px) and (orientation: landscape) {
+          .hero-section {
+            padding: 2rem 1rem !important;
+          }
+          
+          .hero-title {
+            fontSize: 2rem !important;
+            margin-bottom: 0.5rem !important;
+          }
+          
+          .hero-subtitle {
+            fontSize: 0.9rem !important;
+            margin-bottom: 1rem !important;
+          }
+        }
+
+        /* Print Styles */
+        @media print {
+          .hero-section {
+            background: white !important;
+            color: black !important;
+          }
+          
+          .course-card {
+            background: white !important;
+            color: black !important;
+            border: 1px solid #ccc !important;
+            break-inside: avoid;
+          }
         }
       `}</style>
     </>
