@@ -26,14 +26,14 @@ export default function Home() {
       
       {/* Modern Hero Section */}
       <section className="hero" style={{ 
-        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%), url("/images/hero-background.jpg")',
+        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%), url("/images/hero-background.jpg")',
         backgroundSize: 'cover',
-        backgroundPosition: 'center',
-        backgroundAttachment: 'fixed'
+        backgroundPosition: 'center'
       }}>
         <div className="container">
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '3rem', alignItems: 'center', minHeight: '500px' }}>
-            <div style={{ textAlign: 'left' }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center" style={{ minHeight: '420px' }}>
+            {/* Left: Text & CTAs */}
+            <div>
               {/* Fun Badge */}
               <div style={{
                 display: 'inline-block',
@@ -43,69 +43,69 @@ export default function Home() {
                 borderRadius: '25px',
                 fontSize: '0.875rem',
                 fontWeight: '600',
-                marginBottom: '2rem',
+                marginBottom: '1rem',
                 boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)'
               }}>
                 🚀 India's Most Fun Learning Platform for Kids
               </div>
-            
-            <h1>
-              Transform Your Child's Future with <span className="gradient-text">Coding, AI & Math</span><br />
-              Skills That Matter in 2025! 🎯
-            </h1>
-            
-            <p>
-              India's premier online learning platform for kids aged 6-16. Our expert teachers from IIT/NIT make coding, artificial intelligence, math olympiads, and problem-solving fun through hands-on projects. Join 500+ successful students who've built games, solved complex problems, and discovered their passion for technology. Perfect for homeschooling, after-school enrichment, and future career preparation.
-            </p>
-            
-            <div className="hero-cta">
-              <Link href="/courses" className="btn">
-                🎨 Explore Courses
-              </Link>
-              <Link href="/blog" className="btn secondary">
-                📚 Read Blog
-              </Link>
-              <Link href="/contact" className="btn outline">
-                📞 Book FREE Demo
-              </Link>
+
+              <h1>
+                Transform Your Child's Future with <span className="gradient-text">Coding, AI & Math</span><br />
+                Skills That Matter in 2025! 🎯
+              </h1>
+
+              <p>
+                India's premier online learning platform for kids aged 6-16. Our expert teachers from IIT/NIT make coding, artificial intelligence, math olympiads, and problem-solving fun through hands-on projects. Join 500+ successful students who've built games, solved complex problems, and discovered their passion for technology. Perfect for homeschooling, after-school enrichment, and future career preparation.
+              </p>
+
+              <div className="hero-cta" style={{ display: 'flex', flexDirection: 'column', gap: 12, marginTop: 18 }}>
+                <Link href="/courses" className="btn" style={{ width: '100%', textAlign: 'center' }}>
+                  🎨 Explore Courses
+                </Link>
+                <Link href="/blog" className="btn secondary" style={{ width: '100%', textAlign: 'center' }}>
+                  📚 Read Blog
+                </Link>
+                <Link href="/contact" className="btn outline" style={{ width: '100%', textAlign: 'center' }}>
+                  📞 Book FREE Demo
+                </Link>
+              </div>
+
+              {/* Stats */}
+              <div className="stats grid grid-cols-2 gap-4 mt-6">
+                <div className="stat">
+                  <div className="stat-number">1000+</div>
+                  <div className="stat-label">Students Taught</div>
+                </div>
+                <div className="stat">
+                  <div className="stat-number">25+</div>
+                  <div className="stat-label">IIT/NIT Teachers</div>
+                </div>
+                <div className="stat">
+                  <div className="stat-number">4.9⭐</div>
+                  <div className="stat-label">Parent Rating</div>
+                </div>
+                <div className="stat">
+                  <div className="stat-number">95%</div>
+                  <div className="stat-label">Course Completion</div>
+                </div>
+              </div>
             </div>
-            
-            {/* Stats */}
-            <div className="stats">
-              <div className="stat">
-                <span className="stat-number">1000+</span>
-                <span className="stat-label">Students Taught</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">25+</span>
-                <span className="stat-label">IIT/NIT Teachers</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">4.9⭐</span>
-                <span className="stat-label">Parent Rating</span>
-              </div>
-              <div className="stat">
-                <span className="stat-number">95%</span>
-                <span className="stat-label">Course Completion</span>
-              </div>
+
+            {/* Right: Hero Image */}
+            <div className="flex justify-center">
+              <img 
+                src="/images/hero-kids-coding.png" 
+                alt="Kids learning coding and AI" 
+                style={{ 
+                  maxWidth: '100%', 
+                  height: 'auto', 
+                  borderRadius: '20px',
+                  boxShadow: '0 20px 40px rgba(0, 0, 0, 0.08)'
+                }} 
+              />
             </div>
-          </div>
-          
-          {/* Hero Image */}
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-            <img 
-              src="/images/hero-kids-coding.png" 
-              alt="Kids learning coding and AI" 
-              style={{ 
-                maxWidth: '100%', 
-                height: 'auto', 
-                borderRadius: '20px',
-                boxShadow: '0 20px 40px rgba(0, 0, 0, 0.1)'
-              }} 
-            />
           </div>
         </div>
-      </div>
       </section>
 
       {/* Courses Section */}
