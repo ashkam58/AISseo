@@ -25,13 +25,9 @@ export default function Home() {
       />
       
       {/* Modern Hero Section */}
-      <section className="hero" style={{ 
-        background: 'linear-gradient(135deg, rgba(99, 102, 241, 0.06) 0%, rgba(139, 92, 246, 0.06) 100%), url("/images/hero-background.jpg")',
-        backgroundSize: 'cover',
-        backgroundPosition: 'center'
-      }}>
-        <div className="container">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center" style={{ minHeight: '420px' }}>
+  <section className="hero">
+  <div className="container" style={{ position: 'relative', zIndex: 10 }}>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 items-center hero-inner">
             {/* Left: Text & CTAs */}
             <div>
               {/* Fun Badge */}
@@ -92,7 +88,7 @@ export default function Home() {
             </div>
 
             {/* Right: Hero Image */}
-            <div className="flex justify-center">
+            <div className="flex justify-center hero-image" style={{ position: 'relative', zIndex: 12 }}>
               <img 
                 src="/images/hero-kids-coding.png" 
                 alt="Kids learning coding and AI" 
@@ -107,6 +103,42 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      <style jsx>{`
+        .hero {
+          position: relative;
+          overflow: visible;
+        }
+
+  /* (background image removed) */
+
+        /* Ensure background keeps aspect ratio and doesn't stretch on small screens */
+        .hero-inner { min-height: 520px; }
+
+        /* Make hero shorter on small screens to avoid heavy vertical space */
+        @media (max-width: 1200px) {
+          .hero-inner { min-height: 480px; }
+        }
+
+        @media (max-width: 992px) {
+          .hero-inner { min-height: 420px; }
+        }
+
+        @media (max-width: 768px) {
+          .hero-inner { min-height: 320px; }
+          .hero { background-attachment: scroll; background-position: center top; }
+        }
+
+        /* On very small devices, use 'contain' to avoid cropping important parts */
+        @media (max-width: 420px) {
+          .hero { background-size: contain; background-position: center top; }
+          .hero-inner { min-height: 260px; }
+        }
+
+        /* Allow the right illustration to overflow and remain visible like the provided screenshot */
+        .hero-image { overflow: visible; }
+        .hero-image img { display: block; max-width: 100%; height: auto; }
+      `}</style>
 
       {/* Courses Section */}
       <section id="courses" className="section">
